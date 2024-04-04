@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         foreach (['book', 'comic', 'short_story_collection'] as $type) {
-            Product::factory()
+            $products = Product::factory()
                 ->count(3)
                 ->create([
                     'type' => $type
