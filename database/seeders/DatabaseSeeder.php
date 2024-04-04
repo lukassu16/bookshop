@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Attribute;
+use App\Models\AttributeValue;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
@@ -18,19 +19,19 @@ class DatabaseSeeder extends Seeder
         $bookAttribute = Attribute::create([
             'name' => 'genre',
             'label' => 'Genre',
-            'column_type' => 'string'
+            'column_type' => 'string_value'
         ]);
 
         $comicAttribute = Attribute::create([
             'name' => 'series',
             'label' => 'Series',
-            'column_type' => 'string'
+            'column_type' => 'string_value'
         ]);
 
         $shortStoryCollAttribute = Attribute::create([
             'name' => 'theme',
             'label' => 'Theme',
-            'column_type' => 'string'
+            'column_type' => 'string_value'
         ]);
 
         foreach ([
@@ -46,6 +47,12 @@ class DatabaseSeeder extends Seeder
 
             foreach ($products as $product) {
                 $product->attributes()->attach($atr);
+
+                $attrValue = AttributeValue::create([
+                    'product_id' => $product->id,
+                    'attribute_id' => $atr->id,
+                    $atr->column_type => 'test_value'
+                ]);
             }
         }
     }

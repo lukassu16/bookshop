@@ -31,6 +31,11 @@ class Product extends Model
         return $this->belongsToMany(Attribute::class, 'attribute_product', 'product_id', 'attribute_id');
     }
 
+    public function attributesVales()
+    {
+        return $this->hasMany(AttributeValue::class);
+    }
+
     public function getDescription()
     {
         $paramsString = '';
