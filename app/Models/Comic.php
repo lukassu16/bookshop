@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comic extends Product
 {
     use HasFactory, HasParent;
+
+    public static function getAvailableOptions(): array
+    {
+        return ['series'];
+    }
 }

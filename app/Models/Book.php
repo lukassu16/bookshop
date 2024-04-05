@@ -8,4 +8,9 @@ use Parental\HasParent;
 class Book extends Product
 {
     use HasFactory, HasParent;
+
+    public static function getAvailableOptions(): array
+    {
+        return ['genre'];
+    }
 }

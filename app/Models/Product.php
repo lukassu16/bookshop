@@ -13,13 +13,23 @@ class Product extends Model
 {
     use HasFactory, HasChildren;
 
-    protected $fillable = ['type'];
+    protected $fillable = [
+        'title',
+        'price',
+        'type',
+        'author_id'
+    ];
 
     protected $childTypes = [
-        'book' => Book::class,
+        'book'  => Book::class,
         'comic' => Comic::class,
         'short_story_collection' => ShortStoryCollection::class,
     ];
+
+    public static function getAvailableOptions(): array
+    {
+        return [];
+    }
 
     public function author(): BelongsTo
     {

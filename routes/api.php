@@ -20,3 +20,4 @@ Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index'
 
 Route::get('/items', [ProductController::class, 'index'])->name('products.index');
 Route::get('/items/{product}/description', [ProductController::class, 'show'])->name('products.index');
+Route::post('/items', [ProductController::class, 'store'])->name('products.store');

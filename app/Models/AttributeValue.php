@@ -9,7 +9,7 @@ class AttributeValue extends Model
 {
     use HasFactory;
 
-    private $filable = [
+    protected $fillable = [
         'product_id',
         'attribute_id',
         'string_value',
