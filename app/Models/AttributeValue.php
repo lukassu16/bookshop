@@ -15,4 +15,9 @@ class AttributeValue extends Model
         'string_value',
         'integer_value'
     ];
+
+    public function attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
 }

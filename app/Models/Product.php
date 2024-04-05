@@ -31,15 +31,8 @@ class Product extends Model
         return $this->belongsToMany(Attribute::class, 'attribute_product', 'product_id', 'attribute_id');
     }
 
-    public function attributesVales()
+    public function attributesValues()
     {
         return $this->hasMany(AttributeValue::class);
-    }
-
-    public function getDescription()
-    {
-        $paramsString = '';
-
-        return "Price: $this->price, title: $this->title, author: {$this->author->getFullName()}, $paramsString";
     }
 }
