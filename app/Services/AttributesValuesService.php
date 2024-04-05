@@ -8,12 +8,12 @@ class AttributesValuesService
 {
     public function getAttributesDescription($values)
     {
-        $attrsString = '';
+        $attributes = [];
 
         foreach ($values as $value) {
-            $attrsString .= "{$value->attribute->label}: {$value->{$value->attribute->column_type}}, ";
+            $attributes[$value->attribute->label] = $value->{$value->attribute->column_type};
         }
 
-        return $attrsString;
+        return $attributes;
     }
 }

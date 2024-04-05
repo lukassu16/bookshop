@@ -15,12 +15,18 @@ class ProductService
 
     public function getProductDescription(Product $product)
     {
-        $attrsString = $this->attributesValuesService->getAttributesDescription(
+        $attributes = $this->attributesValuesService->getAttributesDescription(
             $product->attributesValues
         );
 
+        $attrsString = '';
+
+        foreach ($attributes as $name => $value) {
+            $attrsString .= "$name: $value, ";
+        }
+
         return "Price: $product->price,"
-            . " title: $product->title, $attrsString,"
+            . " title: $product->title, $attrsString"
             . " author: {$product->author->getFullName()}";
     }
 }
