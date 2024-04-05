@@ -46,8 +46,6 @@ class DatabaseSeeder extends Seeder
                 ]);
 
             foreach ($products as $product) {
-                $product->attributes()->attach($atr);
-
                 $attrValue = AttributeValue::create([
                     'product_id' => $product->id,
                     'attribute_id' => $atr->id,
