@@ -18,9 +18,6 @@ return new class extends Migration
             $table->string('string_value')->nullable();
             $table->integer('integer_value')->nullable();
             $table->timestamps();
-
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
         });
     }
 

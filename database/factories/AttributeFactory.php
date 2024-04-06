@@ -19,7 +19,7 @@ class AttributeFactory extends Factory
         return [
             'label' => fake()->name(),
             'name' => fake()->name(),
-            'column_name' => fake()->name()
+            'column_type' => fake()->name()
         ];
     }
 }
